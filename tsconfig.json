@@ -1,0 +1,15 @@
+{
+  "typeRoots": [ "node_modules/@types" ],
+  "compileOnSave": true,
+  "compilerOptions": {
+      "target": "es6",
+      "sourceMap": true,
+      "experimentalDecorators": true,
+      "removeComments": true,
+      "emitDecoratorMetadata": true,
+      "module": "umd"
+  },
+  "exclude": [
+      "node_modules"
+  ]
+}
