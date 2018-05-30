@@ -1,0 +1,30 @@
+{
+    "name": "repository-service",
+    "version": "0.0.1",
+    "author": {
+        "name": "Thomas Hänig (tFury)"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/tFury/repository-service"
+    },
+    "license": "MIT",
+    "scripts": {
+        "start": "tsc && node src/index",
+        "test": " tsc && mocha --recursive"
+    },
+    "dependencies": {
+        "letslog": "0.1.1"
+    },
+    "devDependencies": {
+        "@types/chai": "4.1.3",
+        "@types/chai-as-promised": "7.1.0",
+        "@types/mocha": "5.2.0",
+        "@types/node": "10.1.4",
+        "chai": "4.1.2",
+        "chai-as-promised": "7.1.1",
+        "mocha": "5.2.0",
+        "ts-node": "6.0.5",
+        "typescript": "2.8.4"
+    }
+}
