@@ -1,4 +1,4 @@
-# repository-service
+# Repository Service for Postgres
 
 Is going to be a REST Service for communication with postgres
 
