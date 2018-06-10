@@ -40,3 +40,67 @@ paths:
                 description: "response string"
         400:
           description: "Invalid status value"
+  /table:
+    x-swagger-router-controller: "table"
+    get:
+      tags: 
+        - "table"
+      summary: "get all tables"
+      operationId: "showAllTables"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              msg:
+                type: string
+              data:
+                type: array
+                items:
+                  type: object
+                  $ref: "#/definitions/tableInfo"
+        400:
+          description: "Invalid status value"
+definitions:
+  tableInfo:
+    type: object
+    properties:
+      schemaname: 
+        type: string
+      tablename: 
+        type: string
+      tableowner: 
+        type: string
+      tablespace: 
+        type: string
+      hasindexes: 
+        type: boolean
+      hasrules: 
+        type: boolean
+      hastriggers: 
+        type: boolean
+      rowsecurity: 
+        type: boolean
+  table:
+    type: object
+    properties:
+      name:
+        type: string
+      fields:
+        $ref: "#/definitions/fields"
+  fields:
+    type: array
+    items:
+      $ref: "#/definitions/field"
+  field:
+    type: object
+    properties:
+      fieldname:
+        type: string
+      fieldtype:
+        type: string
