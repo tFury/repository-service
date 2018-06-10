@@ -4,7 +4,7 @@ import * as chaiHttp from "../../node_modules/chai-http/index";
 import { RepositoryService } from "../../src/index";
 
 
-let service = new RepositoryService(require("../../src/config.json")).app;
+let service = new RepositoryService(require("../config.json")).app;
 let should = chai.should();
 
 chai.use(chaiHttp);
