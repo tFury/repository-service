@@ -1,0 +1,42 @@
+swagger: "2.0"
+info:
+  description: "Service for the communication with the postgres DB"
+  version: "1.0.0"
+  title: "Repository Service"
+  contact:
+    email: "thomas_haenig@gmx.de"
+  license:
+    name: "MIT"
+host: "localhost:48101"
+basePath: "/v1"
+tags:
+  - name: "connectiontest"
+    description: "to test the connection"
+  - name: "table"
+    description: "table"
+schemes:
+- "http"
+paths:
+  /connectiontest:
+    x-swagger-router-controller: "connectiontest"
+    get:
+      tags:
+      - "connectiontest"
+      summary: "connectiontest"
+      description: "connectiontest"
+      operationId: "connectiontest"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: object
+            properties:
+              msg:
+                type: string
+                description: "response string"
+        400:
+          description: "Invalid status value"
