@@ -12,7 +12,7 @@
     "scripts": {
         "start": "node src/index",
         "start:dev": "tsc && node src/index DEBUG",
-        "test": " tsc && mocha --recursive"
+        "test": " tsc && mocha --recursive --exit"
     },
     "dependencies": {
         "body-parser": "1.18.3",
