@@ -10,8 +10,8 @@
     },
     "license": "MIT",
     "scripts": {
-        "start": "node src/index",
-        "start:dev": "tsc && node src/index DEBUG",
+        "start": "node src/index WARN",
+        "start:dev": "tsc && node src/index DEBUG localhost 5432 users logging masterkey",
         "test": " tsc && mocha --recursive --exit"
     },
     "dependencies": {
@@ -19,6 +19,7 @@
         "cors": "2.8.4",
         "express": "4.16.3",
         "js-yaml": "3.12.0",
+        "pg": "7.4.3",
         "letslog": "1.0.0",
         "swagger-tools": "0.10.3"
     },
@@ -30,6 +31,7 @@
         "@types/cors": "2.8.4",
         "@types/express": "4.16.0",
         "@types/js-yaml": "3.11.1",
+        "@types/pg": "7.4.9",
         "@types/mocha": "5.2.2",
         "@types/node": "10.3.3",
         "@types/swagger-tools": "0.10.6",
