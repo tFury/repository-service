@@ -13,7 +13,7 @@ import * as errorCollection         from "../lib/error";
 //#endregion
 
 //#region CONST DEFINITION
-const loglevel: string = process.argv[2];
+const loglevel: string = process.env.NODE_LOGLEVEL;
 //#endregion
 
 export class PostgresProvider {
@@ -22,11 +22,12 @@ export class PostgresProvider {
     private logger: Logger;
 
     constructor(config: IDbConnection) {
+        console.log(config);
 
         this.logger = new Logger({
             transports: [
                 {
-                    baseComment: "tables.ts",
+                    baseComment: "postgresProvider.ts",
                     loglvl: ELoglevel[loglevel],
                     type: ETransportType.console,
                     showBaseComment: true,
@@ -37,11 +38,11 @@ export class PostgresProvider {
         });
 
         this.pool = new Pool({
-            host: config.host,
-            user: config.username,
-            password: config.password,
-            database: config.dbName,
-            port: config.port,
+            host: "localhost", // config.host,
+            user: "postgres", // config.username,
+            password: "mysecretpassword", // config.password,
+            database: "test", // config.dbName,
+            port: 5432, // config.port,
             max: 20,
             idleTimeoutMillis: 30000,
             connectionTimeoutMillis: 2000,
@@ -76,7 +77,7 @@ export class PostgresProvider {
             })
             .catch((error) => {
                 this.logger.error("ERROR in getAllTableNames", error);
-                requestClient.release();
+                // requestClient.release();
                 reject(error);
             });
         });

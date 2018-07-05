@@ -10,13 +10,26 @@ import { Swagger20Request,
 //#endregion
 
 //#region CONST DEFINITION
-const loglevel: string = process.argv[2];
+const loglevel: string = process.env.NODE_LOGLEVEL;
+let host = process.env.NODE_HOST;
+let port = process.env.NODE_PORT;
+let dbName = process.env.NODE_DBNAME;
+let username = process.env.NODE_USERNAME;
+let password = process.env.NODE_PASSWORD;
+
+console.log("host", host);
+console.log("port", port);
+console.log("dbName", dbName);
+console.log("username", username);
+console.log("password", password);
+
+
 const dbConfig: IDbConnection = {
-    host: process.argv[3],
-    port: parseInt(process.argv[4], 10),
-    dbName: process.argv[5],
-    username: process.argv[6],
-    password: process.argv[7]
+    host: host?host:"localhost",
+    port: port?parseInt(port, 10):5432,
+    dbName: dbName?dbName:"test",
+    username: username?username:"postgres",
+    password: password?password:"mysecretpassword"
 };
 const logger = new Logger({
     transports: [
@@ -38,7 +51,7 @@ const postgresProvider = new PostgresProvider(dbConfig);
 
 
 export function showAllTables(req: Swagger20Request<any>, res: Swagger20Response) {
-    logger.info("Endpoint called: GET /table");
+    logger.info("Endpoint called: GET /table", dbConfig);
 
     postgresProvider.getAllTables()
     .then((tables) => {
@@ -46,6 +59,6 @@ export function showAllTables(req: Swagger20Request<any>, res: Swagger20Response
     })
     .catch((error) => {
         writeJson(res, error, 400);
-        logger.error("ERROR", error);
+        logger.error("ERROR in showAllTables", error);
     });
 }

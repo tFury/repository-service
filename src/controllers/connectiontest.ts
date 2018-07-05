@@ -9,7 +9,7 @@ import { Swagger20Request,
 //#endregion
 
 //#region CONST DEFINITION
-const loglevel: string = process.argv[2];
+const loglevel: string = process.env.NODE_LOGLEVEL;
 const logger = new Logger({
     transports: [
         {

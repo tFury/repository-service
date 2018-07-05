@@ -3,7 +3,7 @@ import * as chai from "chai";
 import * as chaiAsPromised from "chai-as-promised";
 //#endregion
 
-describe("pseudoCheck", () => {
+describe("PSEUDOCHECK", () => {
 
     describe("test something", () => {
         it("should return 2", (done) => {
@@ -11,4 +11,5 @@ describe("pseudoCheck", () => {
             done();
         });
     });
+
 });
