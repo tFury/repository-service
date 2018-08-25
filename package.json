@@ -13,7 +13,8 @@
         "start": "set NODE_LOGLEVEL=TRACE && node src/index",
         "start:dev": "tsc && set NODE_LOGLEVEL=TRACE && node src/index DEBUG localhost 5432 users logging masterkey",
         "start:test": "tsc && set NODE_LOGLEVEL=TRACE && node src/index",
-        "test": " tsc && set NODE_LOGLEVEL=TRACE set NODE_HOST=localhost && set NODE_PORT=5432 && set NODE_DBNAME=test && set NODE_USERNAME=postgres && set NODE_PASSWORD=mysecretpassword && mocha --recursive --exit"
+        "test": " tsc && set NODE_LOGLEVEL=TRACE set NODE_HOST=localhost && set NODE_PORT=5432 && set NODE_DBNAME=test && set NODE_USERNAME=postgres && set NODE_PASSWORD=  && mocha --recursive --exit",
+        "test:local": " tsc && set NODE_LOGLEVEL=TRACE set NODE_HOST=localhost && set NODE_PORT=5432 && set NODE_DBNAME=test && set NODE_USERNAME=postgres && set NODE_PASSWORD=mysecretpassword && mocha --recursive --exit"
     },
     "dependencies": {
         "body-parser": "1.18.3",
