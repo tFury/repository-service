@@ -30,7 +30,7 @@ export class RepositoryService {
     constructor(config: IConfig) {
         this.config = config;
 
-        let loglevel: string = process.argv[2];
+        let loglevel: string = process.env.NODE_LOGLEVEL;
         this.logger = new Logger({
             transports: [
                 {
