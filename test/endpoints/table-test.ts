@@ -1,6 +1,7 @@
 //#region IMPORTS
 import * as chai                from "chai";
 import * as chaiHttp            from "../../node_modules/chai-http/index";
+
 import { RepositoryService }    from "../../src/index";
 //#endregion
 
@@ -18,9 +19,8 @@ describe("TABLE", () => {
         it("it should return success", (done) => {
             request.get("/v1/table")
             .end((err, res) => {
-                console.log("RES", res.body);
                 chai.expect(res).to.have.status(200);
-                chai.expect(res.body.msg).to.equal("success");
+                chai.expect(res.body.success).to.equal(true);
                 done();
             });
         });

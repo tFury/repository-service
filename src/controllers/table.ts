@@ -55,7 +55,11 @@ export function showAllTables(req: Swagger20Request<any>, res: Swagger20Response
 
     postgresProvider.getAllTables()
     .then((tables) => {
-        writeJson(res, {tables: tables}, 200);
+        let responseObject = {
+            success: true,
+            data: tables
+        };
+        writeJson(res, responseObject, 200);
     })
     .catch((error) => {
         writeJson(res, error, 400);

@@ -1,18 +1,20 @@
 //#region IMPORTS
-import { Logger,
-         ELoglevel,
-         ETransportType }           from "../node_modules/letslog/src/index";
-import { SwaggerRouter20Options,
-        initializeMiddleware }      from "swagger-tools";
-import { urlencoded,
-        json }                      from "body-parser";
+import * as express                 from "express";
+import * as cors                    from "cors";
+
 import { safeLoad }                 from "js-yaml";
 import { readFileSync }             from "fs";
 import { join }                     from "path";
 import { IConfig }                  from "./lib/interfaces";
 import { Server }                   from "http";
-import * as express                 from "express";
-import * as cors                    from "cors";
+
+import { Logger,
+         ELoglevel,
+         ETransportType }           from "../node_modules/letslog/src/index";
+import { SwaggerRouter20Options,
+         initializeMiddleware }     from "swagger-tools";
+import { urlencoded,
+         json }                     from "body-parser";
 //#endregion
 
 export class RepositoryService {
