@@ -22,7 +22,7 @@
         "express": "4.16.3",
         "js-yaml": "3.12.0",
         "pg": "7.4.3",
-        "letslog": "1.0.0",
+        "letslog": "1.0.11",
         "swagger-tools": "0.10.4"
     },
     "devDependencies": {
